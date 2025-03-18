@@ -1,0 +1,18 @@
+import { div } from "framer-motion/client";
+import Header from "./_components/Header";
+import Sidebar from "./_components/Sidebar";
+
+export default function LayoutDashboard ({children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+    return (
+        <div className="bg-orange-50">
+            <Header/>
+            <div className=" flex flex-row items-center">
+            <Sidebar/>
+            {children}
+            </div>
+        </div>
+    )
+}
