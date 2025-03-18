@@ -1,6 +1,6 @@
 import { div } from "framer-motion/client";
 import Header from "./_components/Header";
-import Sidebar from "./_components/Sidebar";
+import Sidebar from "./_components/_sidebar/Sidebar";
 
 export default function LayoutDashboard ({children,
 }: Readonly<{
