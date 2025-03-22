@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 import { useState } from "react";
 
-export default function LoginPage() {
+export default  function LoginPage() {
   const [submitting, setSubmitting] = useState(false);
   const router = useRouter();
   const handleSubmit = async (e: React.FormEvent) => {
@@ -18,6 +18,7 @@ export default function LoginPage() {
     let authData: any = {};
     authData.userEmail = formData.get("userEmail");
     authData.userPassword = formData.get("userPassword");
+    console.log(authData);
     try {
       const response = await axios.post(
         `${API_URL}/auth/login`,
