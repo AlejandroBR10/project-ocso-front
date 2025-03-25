@@ -26,7 +26,7 @@ export interface Manager {
    
     managerSalary: number;
   
-    managerEmail : string;
+    managerEmail : string;  
    
     managerPhoneNumber : string;
     location: Location
