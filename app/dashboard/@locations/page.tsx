@@ -11,15 +11,18 @@ import { authHeaders } from "@/helpers/authHeaders";
 const LocationPage = async ({searchParams}: {
   searchParams: { [key: string]: string | string[] | undefined};
 }) => {
-  let { data } = await axios.get<Location[]>(
+  const response = await fetch(
     `${API_URL}/locations`,
     {
       headers: {
         ...authHeaders(),
       },
+      next: {
+        tags: ["dashboard:locations"]
+      }
     }
   );
-
+let data: Location[] = await response.json();
   data = [
     {
       locationId: 0,
