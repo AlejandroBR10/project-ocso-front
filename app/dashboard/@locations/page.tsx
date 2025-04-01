@@ -37,7 +37,7 @@ let data: Location[] = await response.json();
   ]
   
   return (
-    <div className="w-8/12">
+    <div className="w-7/12">
         <div className="w-full flex flex-col items-center h-[90vh] bg-red-50">
             <div className="w-1/2 my-10">
             <SelectLocation locations={data} store={searchParams?.store}/>
@@ -48,10 +48,12 @@ let data: Location[] = await response.json();
             <div className="w-6/12">
             <FormNewLocation searchParams={searchParams}/>
             </div>
+            <div className="flex flex-row flex-grow-0 gap-10 items-center">
             <DeleteLocationButton store={searchParams.store}/>
-            <UpdateLocation>
+            <UpdateLocation store={searchParams.store}>
               <FormUpdateLocation store={searchParams.store}/>
             </UpdateLocation>
+            </div>
       </div>
     </div>
   );

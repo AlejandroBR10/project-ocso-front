@@ -1,13 +1,14 @@
 import deleteLocation from "@/actions/locations/delete";
 
 import { Button } from "@heroui/react";
+import { LuTrash } from "react-icons/lu";
 
 
 export default async function DeleteLocationButton({store}: {store: string | string[] | undefined}){
     if(!store) return null;
     return (
         <form action={deleteLocation}>
-            <Button type="submit" name = "deleteValue" value = {store} color="danger">Borrar Tienda</Button>
+            <Button type="submit" name = "deleteValue" value = {store} color="danger"><LuTrash size="20"/></Button>
         </form>
     )
     
