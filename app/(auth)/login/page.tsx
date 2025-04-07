@@ -1,6 +1,7 @@
 "use client";
 
 import { API_URL } from "@/constants";
+import { authHeaders } from "@/helpers/authHeaders";
 import { Button, form, Input } from "@heroui/react";
 import axios from "axios";
 import Link from "next/link";
@@ -24,6 +25,7 @@ export default  function LoginPage() {
         `${API_URL}/auth/login`,
         {
           method: "POST",
+         
           body: JSON.stringify(authData),
           credentials: 'include',
         });

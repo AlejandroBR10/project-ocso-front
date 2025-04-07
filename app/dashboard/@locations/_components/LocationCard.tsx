@@ -23,7 +23,7 @@ export default async function LocationCard({store} :{store: string | string [] |
             </CardHeader>
             <Divider/>
             <CardBody className="flex flex-col w-full items-center">
-            <p className="w-full">Manager: <Link href={{pathname: `/dashboard/managers`}}><b>{data.manager?.managerFullName}</b></Link></p>
+            <p className="w-full">Manager: <Link href={{pathname: `/dashboard/managers/${data.manager?.managerId}`}}><b>{data.manager?.managerFullName}</b></Link></p>
             <p className="w-full">Direccion: <b>{data.locationAddress}</b> </p>
             <iframe className="border-2 border-orange-800 rounded-md my-2"
              width="300"
