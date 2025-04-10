@@ -3,6 +3,7 @@ import { Manager } from "@/entities";
 import { authHeaders } from "@/helpers/authHeaders";
 import { Card, CardBody, CardHeader, Divider } from "@heroui/react";
 import { headers } from "next/headers";
+import ManagerCard from "./_components/ManagerCard";
 
 export default async function ManagerPage({
   params,
@@ -22,39 +23,9 @@ export default async function ManagerPage({
   console.log(data);
 
   return (
-    <Card className="mx-20 py-2 bg-orange-50">
-      <CardHeader>
-        <p className="w-full">
-          Nombre: <b>{data.managerFullName}</b>
-        </p>
-      </CardHeader>
-      <Divider />
-      <CardBody>
-        <p className="w-full">
-          Email: <b>{data.managerEmail}</b>
-        </p>
-        <p className="w-full">
-          Telefono: <b>{data.managerPhoneNumber}</b>
-        </p>
-
-        {data.location ? (
-          <>
-            <p>
-              Tienda: <b>{data.location.locationName}</b>
-            </p>
-            <iframe
-              className="border-2 border-orange-800 rounded-md my-2"
-              width="300"
-              height="200"
-              loading="lazy"
-              src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBGqziK-QTSTDtk1Ay2tJIOzdGpfR4aHz0
-                      &q=${data.location.locationLatLng[0]}, ${data.location.locationLatLng[1]}`}
-            ></iframe>
-          </>
-        ) : (
-          <p>No tiene tienda...</p>
-        )}
-      </CardBody>
-    </Card>
+    
+  <div>
+  <ManagerCard manager={data}/>
+  </div>
   );
 }
