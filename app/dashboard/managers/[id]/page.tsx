@@ -26,7 +26,7 @@ export default async function ManagerPage({
   console.log(data);
 
   return (
-    
+      
   <div className="flex flex-col gap-10 flex-grow-0 items-center justify-center">
   <ManagerCard manager={data}/>
   <div className="bg-white shadow-medium rounded-md px-10 py-2">

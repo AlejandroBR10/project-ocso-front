@@ -11,9 +11,9 @@ export default async function createManager(formData  :FormData){
         manager[key] = formData.get(key);
             
         }
-   const response =  await fetch(`${API_URL}/locations`, {
+   const response =  await fetch(`${API_URL}/managers`, {
         method: "POST",
-       body: JSON.stringify(location),
+       body: JSON.stringify(manager),
         headers: {
             'content-type': 'application/json',
            ...authHeaders() 
