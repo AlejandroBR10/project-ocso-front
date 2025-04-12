@@ -6,6 +6,8 @@ import ProvidersCard from "./_components/ProvidersCard";
 import Link from "next/link";
 import { Button } from "@heroui/react";
 import { LuPlus } from "react-icons/lu";
+import CreateProvider from "./_components/CreateProvider";
+import FormNewProvider from "./_components/FormNewProvider";
 
 
 const ProvidersPage = async() => {
@@ -18,13 +20,13 @@ const ProvidersPage = async() => {
 
     return (
         <div className=" flex flex-grow-0 flex-col items-end w-full px-10 pt-10 h-[90vh]">
-            <Button className="w-fit" color="primary">
-                <LuPlus size="20"/>
-            </Button>
+          <CreateProvider>
+            <FormNewProvider/>
+          </CreateProvider>
         <div className="flex flex-wrap w-full py-20 flex-grow-0  gap-14">
             {providers.map((provider: Provider) => (
-                <Link  className ="hover:scale-110 transition-transform" href={{pathname : `/dashboard/providers/${provider.providerId}`}}>
-                <ProvidersCard provider={provider} key={provider.providerId}/>
+                <Link   key={provider.providerId} className ="hover:scale-110 transition-transform" href={{pathname : `/dashboard/providers/${provider.providerId}`}}>
+                <ProvidersCard provider={provider}/>
                 </Link>
             ))}
         </div>

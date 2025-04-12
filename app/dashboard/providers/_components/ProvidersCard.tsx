@@ -15,10 +15,10 @@ export default function ProvidersCard({ provider }: { provider: Provider }) {
           Telefono:
         </p>
         <b>{provider.providerPhoneNumber}</b>
-        {
-        provider.products ? (
+        { 
+        (provider.products.length !== 0) ? (
           <p>
-            Tiene <b>{provider.products.length}</b> productos
+            Tiene <b>{provider.products.length}</b> producto{provider.products.length > 1 ? "s" : " "}
           </p>
         ) : (
           <p>No tiene productos</p>
