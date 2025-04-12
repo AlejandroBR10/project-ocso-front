@@ -20,15 +20,40 @@ export interface Employee {
 }
 
 export interface Manager {
-  managerId : string;
-   
-    managerFullName : string;
-   
-    managerSalary: number;
+  managerId: string;
+
+  managerFullName: string;
+
+  managerSalary: number;
+
+  managerEmail: string;
+
+  managerPhoneNumber: string;
+  location: Location;
+  user: any;
+}
+
+export interface Provider {
+  providerId: string;
+
+  providerName: string;
+
+  providerEmail: string;
+
+  providerPhoneNumber: string;
+
+  products: Product[];
+}
+
+export interface Product {
+
+  productId: string;
+
+  productName: string;
+
+  price: number;
+
+  countSeal: number;
   
-    managerEmail : string;  
-   
-    managerPhoneNumber : string;
-    location: Location
-    user : any;
+  provider: Provider;
 }
