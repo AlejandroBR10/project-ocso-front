@@ -1,24 +1,34 @@
+import createProduct from "@/actions/products/create";
 import { API_URL } from "@/constants";
-import { Product } from "@/entities";
+import { Provider } from "@/entities";
 import { authHeaders } from "@/helpers/authHeaders";
-import FilteredCards from "./_components/FilteredCards";
+import { Button, Input } from "@heroui/react";
+import { LuDollarSign } from "react-icons/lu";
+import SelectProvider from "./_components/SelectProvider";
 
+ 
 const ProductsPage = async () => {
-    const response = await  fetch(`${API_URL}/products`, {
-     headers : {
-        ...authHeaders()
-     },
-     next : {
-        tags : ["dashboard:products"]
-     }
+
+    const responseProviders = await fetch(`${API_URL}/providers`,{
+        headers : {
+            ...authHeaders(),
+        }
     });
-    const products: Product[] = await response.json();
+    const providers: Provider[] = await responseProviders.json();
     return (
-        <div className="h-[90vh] w-full">
-            <div className="w-3/12">
-            <FilteredCards products={products}/>
+        <form className=" px-20 justify-center pt-10" action={createProduct}>
+            <div className="flex flex-col p-10 bg-orange-600 rounded-md gap-6">
+            <h1 className="text-2xl text-white font-bold">Crear Producto</h1>
+            <Input label = "Nombre del producto" name = "productName"/>
+            <Input label = "Precio" endContent = {<LuDollarSign size={20}/>}name = "price"/>
+            <Input label = "Num. de Sellos" name = "countSeal"/>
+            <SelectProvider providers={providers} />
+            <Button type="submit" color="primary">Crear Producto</Button>
             </div>
-        </div>
-    )
-}
+        </form>
+ 
+ 
+ 
+    );
+};
 export default ProductsPage;
