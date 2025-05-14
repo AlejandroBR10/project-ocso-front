@@ -3,6 +3,7 @@ import { API_URL, TOKEN_NAME } from "@/constants";
 import { Employee } from "@/entities";
 import { authHeaders } from "@/helpers/authHeaders";
 import { Card , CardBody, CardHeader, Divider} from "@heroui/react";
+import Link from "next/link";
 
 
 export default async function EmployeesLocation({ store }: { store: string | string[] | undefined}) {
@@ -24,6 +25,9 @@ const response = await fetch(`${API_URL}/employees/location/${store}`,{
         return (
         <Card className="mx-10 my-10">
           <CardHeader>
+            <Link href={{pathname:`/dashboard/employees/${employee.employeeId}`}} className="underline">
+            <p className="w-full">Nombre: <b>{fullName}</b></p>
+            </Link>
           <p className="w-full">Nombre: <b>{fullName}</b></p>
           </CardHeader>
           <Divider/>
