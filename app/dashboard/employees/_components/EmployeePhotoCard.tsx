@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function EmployeePhotoCard({employee} : {employee : Employee}){
 return (
-    <Card className="max-h-72 min-h-72" isBlurred>
+    <Card className="max-h-72 min-h-72" isFooterBlurred >
         <CardHeader className="absolute top-0 bg-black bg-opacity-25 z-10">
         <h1 className="font-bold text-xl text-white drop-shadow-sm">{employee.employeeName + " " + employee.employeeLastName}</h1>
         </CardHeader>

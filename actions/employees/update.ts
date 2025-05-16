@@ -9,25 +9,32 @@ import { redirect } from "next/navigation";
 
 export default async function updateEmployee(employeeId : string ,formData  :FormData){
 
-    formData.delete("$ACTION_REF_0");
-    formData.delete("$ACTION_0:1");
-    formData.delete("$ACTION_0:0")
+
+    const cleanData = new FormData();
+   
+    for (const [key, value] of Array.from(formData.entries())) {
+   if(!key.startsWith("$")){
+        cleanData.append(key,value);
+   }
+   
+}
 
    const response =  await fetch(`${API_URL}/employees/${employeeId}`, {
         method: "PATCH",
-       body: formData,
+       body: cleanData,
         headers: {
+            
            ...authHeaders() 
         }
     });
     
    const data = await response.json();
-   console.log(data);
+   console.log("Data:",data);
   
     if(response.status === 200){
         revalidateTag("dashboard:employees");
-        revalidateTag(`dashboard:employees:${employeeId}`);
-        redirect("/dashboard/employees");
+       /* revalidateTag(`dashboard:employees:${employeeId}`);
+        redirect("/dashboard/employees");*/
         
     }
         

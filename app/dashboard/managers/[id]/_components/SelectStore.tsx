@@ -4,7 +4,7 @@ import { Location } from "@/entities";
 import { Select, SelectItem } from "@heroui/select";
 
 
-export default function SelectStore({stores,defaultStore}: {stores: Location[], defaultStore : number}){
+export default function SelectStore({stores,defaultStore}: {stores: Location[], defaultStore?: number}){
     const disableStores = stores.map((store:Location) => {
         if(store.manager !== undefined && store.locationId !== defaultStore){
             return String(store.locationId);
